@@ -1,0 +1,17 @@
+## TOOLS ##
+
+[tool.black]
+line-length = 99
+
+[tool.ruff]
+line-length = 99
+select = [
+    "E", # Pyflakes
+    "F", # Pycodestyle
+    "I", # isort
+]
+src = ["main.py"]
+unfixable = ["F"]
+
+[tool.ruff.isort]
+force-sort-within-sections = true
