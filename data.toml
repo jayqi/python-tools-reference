@@ -3,8 +3,8 @@
 name = "Managing Python installations"
 description = "Installs multiple versions of Python, and provides ways to switch between them on a global or per-project basis."
 [functionalities.creating_virtual_envs]
-name = "Creating virtual environments"
-description = "Can create a virtual environment, i.e., a specific Python interpreter and an isolated set of installed Python packages. Typically, a Python project uses at least one virtual environment. There are two kinds of virtual environments relevant to Python development: regular Python virtual environments; and Conda environments which can include other non-Python software packages."
+name = "Creating a virtual environment"
+description = "Can create a virtual environment, i.e., a specific Python interpreter and an isolated set of installed Python packages. Typically, a Python project uses at least one virtual environment. This may be a standalone virtual environment stored in a central location, or it may be inside a project directory and tied to that project. There are two kinds of virtual environments relevant to Python development: regular Python virtual environments; and Conda environments which can include other non-Python software packages."
 [functionalities.managing_dependencies]
 name = "Managing dependencies"
 description = "Provides a way to declare project dependencies and install them into a virtual environment."
@@ -196,7 +196,29 @@ explanation = "FILL ME IN"
 reference = "https://pdm.fming.dev/latest/usage/publish/"
 
 [[tools]]
-name = "pip-compiile"
+name = "Rye"
+description = "FILL ME IN"
+[[tools.functionalities.managing_python]]
+explanation = "FILL ME IN"
+reference = "https://github.com/mitsuhiko/rye#some-of-the-things-it-does"
+[[tools.functionalities.creating_virtual_envs]]
+explanation = "FILL ME IN"
+reference = "https://rye-up.com/guide/basics/#first-sync"
+[[tools.functionalities.managing_dependencies]]
+explanation = "FILL ME IN"
+reference = "https://rye-up.com/guide/basics/#adding-dependencies"
+[[tools.functionalities.writing_lockfiles]]
+explanation = "FILL ME IN"
+reference = "https://rye-up.com/guide/sync/"
+[[tools.functionalities.building_packages]]
+explanation = "Rye provides a `build` command to build packages, which uses build under the hood."
+reference = "hhttps://rye-up.com/guide/publish/"
+[[tools.functionalities.publishing_packages]]
+explanation = "Rye provides a `publish` command to publish to PyPI, which uses twine under the hood."
+reference = "https://rye-up.com/guide/publish/"
+
+[[tools]]
+name = "pip-compile"
 description = "FILL ME IN"
 [[tools.functionalities.writing_lockfiles]]
 explanation = "FILL ME IN"
