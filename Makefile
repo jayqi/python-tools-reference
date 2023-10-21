@@ -1,6 +1,7 @@
 .PHONY: build
 build:
-	mkdir site || :
+	rm -rf site
+	mkdir site
 	python main.py
 
 format:
