@@ -1,4 +1,5 @@
 black
 jinja2
 pip-tools
+pydantic
 ruff
