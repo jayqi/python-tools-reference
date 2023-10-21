@@ -11,9 +11,9 @@ description = "Provides a way to declare project dependencies and install them i
 [functionalities.managing_virtual_envs]
 name = "Managing multiple virtual environments"
 description = "Manages multiple virtual environments for a single project at once, such as for testing. This includes creating the virtual environment, declaring and installing dependencies, and tearing them down. Such tools often let one create virtual environments from a matrix of parameters."
-[functionalities.writing_lockfiles]
-name = "Writing lockfiles"
-description = "Lockfiles specify the exact set of packages installed in an environment with exact versions. They allow for reproducing that environment."
+[functionalities.writing_lock_files]
+name = "Writing lock files"
+description = "Lock files specify the exact set of packages installed in an environment with exact versions. They allow for reproducing that environment."
 [functionalities.building_packages]
 name = "Building packages"
 description = "Creating file archives of Python code that can be distributed and installed by other users. There are two kinds of packages common for Python: regular Python packages distributed on PyPI, and conda packages "
@@ -207,7 +207,7 @@ reference = "https://rye-up.com/guide/basics/#first-sync"
 [[tools.functionalities.managing_dependencies]]
 explanation = "FILL ME IN"
 reference = "https://rye-up.com/guide/basics/#adding-dependencies"
-[[tools.functionalities.writing_lockfiles]]
+[[tools.functionalities.writing_lock_files]]
 explanation = "FILL ME IN"
 reference = "https://rye-up.com/guide/sync/"
 [[tools.functionalities.building_packages]]
@@ -220,14 +220,14 @@ reference = "https://rye-up.com/guide/publish/"
 [[tools]]
 name = "pip-compile"
 description = "FILL ME IN"
-[[tools.functionalities.writing_lockfiles]]
+[[tools.functionalities.writing_lock_files]]
 explanation = "FILL ME IN"
 reference = "FILL ME IN"
 
 [[tools]]
 name = "conda-lock"
 description = "FILL ME IN"
-[[tools.functionalities.writing_lockfiles]]
+[[tools.functionalities.writing_lock_files]]
 explanation = "FILL ME IN"
 reference = "FILL ME IN"
 
