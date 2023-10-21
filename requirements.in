@@ -1,2 +1,4 @@
+black
 jinja2
 pip-tools
+ruff
