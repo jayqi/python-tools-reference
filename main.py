@@ -73,6 +73,7 @@ if __name__ == "__main__":
     class ToolInfo(BaseModel):
         name: str
         description: str
+        github: str | None = None
         website: HttpUrl
         functionalities: dict[FunctionalitiesEnum, list[ToolFunctionalityInfo]]
 

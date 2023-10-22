@@ -80,6 +80,7 @@ description = """
 [[tools]]
 name = "pyenv"
 website = "https://github.com/pyenv/pyenv"
+github = "pyenv/pyenv"
 description = """
     pyenv is a tool that installs multiple versions of Python and lets you switch between them.
 """
@@ -92,6 +93,7 @@ reference = "https://github.com/pyenv/pyenv#what-pyenv-does"
 
 [[tools]]
 name = "asdf"
+github = "asdf-vm/asdf"
 website = "https://asdf-vm.com/"
 description = """
     asdf is a tool for managing multiple versions of many language runtimes. It supports managing
@@ -107,6 +109,7 @@ reference = "https://github.com/asdf-community/asdf-python"
 
 [[tools]]
 name = "rtx"
+github = "jdx/rtx"
 website = "https://github.com/jdx/rtx"
 description = """
     rtx is a tool for managing multiple versions of many language runtimes, including Python. It
@@ -121,6 +124,7 @@ reference = "https://github.com/jdx/rtx/blob/main/docs/python.md"
 
 [[tools]]
 name = "conda"
+github = "conda/conda"
 website = "https://docs.conda.io/en/latest/"
 description = "FILL ME IN"
 [[tools.functionalities.managing_python]]
@@ -141,6 +145,7 @@ icon = "conda"
 
 [[tools]]
 name = "mamba"
+github = "mamba-org/mamba"
 website = "https://mamba.readthedocs.io/en/stable/"
 description = "FILL ME IN"
 [[tools.functionalities.managing_python]]
@@ -170,6 +175,7 @@ icon = "python"
 
 [[tools]]
 name = "virtualenv"
+github = "pypa/virtualenv"
 website = "https://virtualenv.pypa.io/en/latest/"
 description = "FILL ME IN"
 [[tools.functionalities.creating_a_virtual_env]]
@@ -179,6 +185,7 @@ icon = "python"
 
 [[tools]]
 name = "Pip"
+github = "pypa/pip"
 website = "https://pip.pypa.io/en/stable/"
 description = "FILL ME IN"
 [[tools.functionalities.managing_dependencies]]
@@ -188,6 +195,7 @@ icon = "python"
 
 [[tools]]
 name = "tox"
+github = "tox-dev/tox"
 website = "https://tox.wiki/en/stable/"
 description = "FILL ME IN"
 [[tools.functionalities.automating_virtual_envs]]
@@ -196,6 +204,7 @@ reference = "https://tox.wiki/en/4.11.3/user_guide.html"
 
 [[tools]]
 name = "Nox"
+github = "wntrblm/nox"
 website = "https://nox.thea.codes/en/stable/"
 description = "FILL ME IN"
 [[tools.functionalities.automating_virtual_envs]]
@@ -209,6 +218,7 @@ icon = "conda"
 
 [[tools]]
 name = "Pipenv"
+github = "pypa/pipenv"
 website = "https://pipenv.pypa.io/en/stable/"
 description = "FILL ME IN"
 [[tools.functionalities.creating_a_virtual_env]]
@@ -226,6 +236,7 @@ icon = "python"
 
 [[tools]]
 name = "Hatch"
+github = "pypa/hatch"
 website = "https://hatch.pypa.io/latest/"
 description = "FILL ME IN"
 [[tools.functionalities.creating_a_virtual_env]]
@@ -251,6 +262,7 @@ icon = "python"
 
 [[tools]]
 name = "Poetry"
+github = "python-poetry/poetry"
 website = "https://python-poetry.org/"
 description = "FILL ME IN"
 [[tools.functionalities.creating_a_virtual_env]]
@@ -279,6 +291,7 @@ icon = "python"
 
 [[tools]]
 name = "PDM"
+github = "pdm-project/pdm"
 website = "https://pdm.fming.dev/latest/"
 description = "FILL ME IN"
 [[tools.functionalities.creating_a_virtual_env]]
@@ -296,6 +309,7 @@ reference = "https://pdm.fming.dev/latest/usage/publish/"
 
 [[tools]]
 name = "Rye"
+github = "mitsuhiko/rye"
 website = "https://rye-up.com/"
 description = "FILL ME IN"
 [[tools.functionalities.managing_python]]
@@ -318,7 +332,8 @@ explanation = "Rye provides a `publish` command to publish to PyPI, which uses t
 reference = "https://rye-up.com/guide/publish/"
 
 [[tools]]
-name = "pip-compile"
+name = "pip-tools"
+github = "jazzband/pip-tools"
 website = "https://github.com/jazzband/pip-tools/"
 description = "FILL ME IN"
 [[tools.functionalities.writing_lock_files]]
@@ -327,6 +342,7 @@ reference = "https://github.com/jazzband/pip-tools/#example-usage-for-pip-compil
 
 [[tools]]
 name = "conda-lock"
+github = "conda/conda-lock"
 website = "https://github.com/conda/conda-lock"
 description = "FILL ME IN"
 [[tools.functionalities.writing_lock_files]]
@@ -335,6 +351,7 @@ reference = "https://github.com/conda/conda-lock#basic-usage"
 
 [[tools]]
 name = "Build"
+github = "pypa/build"
 website = "https://pypa-build.readthedocs.io/en/stable/"
 description = "FILL ME IN"
 [[tools.functionalities.building_packages]]
@@ -343,6 +360,7 @@ reference = "https://pypa-build.readthedocs.io/en/stable/index.html"
 
 [[tools]]
 name = "Twine"
+github = "pypa/twine"
 website = "https://twine.readthedocs.io/en/stable/"
 description = "FILL ME IN"
 [[tools.functionalities.publishing_packages]]
@@ -351,6 +369,7 @@ reference = "https://twine.readthedocs.io/en/stable/"
 
 [[tools]]
 name = "Flit"
+github = "pypa/flit"
 website = "https://flit.pypa.io/en/stable/"
 description = "FILL ME IN"
 [[tools.functionalities.building_packages]]

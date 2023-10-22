@@ -22,17 +22,6 @@
             --font-size: 16px;
         }
 
-        h2,
-        h3,
-        h4 {
-            --typography-spacing-vertical: 1.0em;
-        }
-
-        dl dt,
-        dl dd {
-            margin-bottom: 1em;
-        }
-
         main.container {
             padding-top: 3rem;
             padding-bottom: 1rem;
@@ -49,6 +38,26 @@
             margin-bottom: 1rem;
             padding-top: 1rem;
             padding-bottom: 1rem;
+        }
+
+        h2,
+        h3,
+        h4 {
+            --typography-spacing-vertical: 1.0em;
+        }
+
+        dl dt,
+        dl dd {
+            margin-bottom: 1em;
+        }
+
+        dl dt {
+            font-weight: bold;
+        }
+
+        hr {
+            margin-top: 0;
+            margin-bottom: 1.25rem;
         }
 
         .tool-table-container>* td {
@@ -183,7 +192,7 @@
                 <h2>Functionality definitions</h2>
                 <dl>
                     {% for func_key, func_info in functionalities.items() %}
-                    <dt><strong>{{ func_info.name }}</strong></dt>
+                    <dt id="{{ func_key }}">{{ func_info.name }}</dt>
                     <dd>{{ func_info.description }}</dd>
                     {% endfor %}
                 </dl>
@@ -193,20 +202,30 @@
             <h2>Tools</h2>
             {% for tool_info in tools %}
             <article>
-                <h3 id="{{ tool_info.name }}">{{ tool_info.name }}</h3>
+                <h3 id="{{ tool_info.name }}">{{ tool_info.name }} {% if tool_info.github %}<a
+                        href="https://github.com/{{ tool_info.github }}"><img
+                            style="margin-left: 1em; margin-bottom: 0.25em;" alt="GitHub Repo stars"
+                            src="https://img.shields.io/github/stars/{{ tool_info.github }}?logo=github&label=%E2%98%86%20{{ tool_info.github | urlencode}}"></a>{%
+                    endif %}
+                </h3>
                 <p>{{ tool_info.description }}</p>
                 <p class="reference-link">Website: <a href="{{ tool_info.website }}" target="_blank">{{
                         tool_info.website }}</a>
                 </p>
-                {% for func_key, tool_func_info_list in tool_info.functionalities.items() %}
-                <h4 id="{{ tool_info.name }}-{{ func_key }}">{{functionalities[func_key].name}}</h4>
-                {% for tool_func_info in tool_func_info_list %}
-                <p>{{ tool_func_info.explanation }}</p>
-                <p class="reference-link">Reference: <a href="{{ tool_func_info.reference }}" target="_blank">{{
-                        tool_func_info.reference }}</a>
-                </p>
-                {% endfor %}
-                {% endfor %}
+                <hr>
+                <dl>
+                    {% for func_key, tool_func_info_list in tool_info.functionalities.items() %}
+                    <dt id="{{ tool_info.name }}-{{ func_key }}">{{functionalities[func_key].name}}</dt>
+                    {% for tool_func_info in tool_func_info_list %}
+                    <dd>
+                        <p>{{ tool_func_info.explanation }}</p>
+                        <p class="reference-link">Reference: <a href="{{ tool_func_info.reference }}" target="_blank">{{
+                                tool_func_info.reference }}</a>
+                        </p>
+                    </dd>
+                    {% endfor %}
+                    {% endfor %}
+                </dl>
             </article>
             {% endfor %}
             <a class="return-top" href="#" role="button">Return to Top &#8593;</a>
