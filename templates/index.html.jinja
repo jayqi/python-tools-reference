@@ -22,6 +22,17 @@
             --font-size: 16px;
         }
 
+        h2,
+        h3,
+        h4 {
+            --typography-spacing-vertical: 1.0em;
+        }
+
+        dl dt,
+        dl dd {
+            margin-bottom: 1em;
+        }
+
         main.container {
             padding-top: 3rem;
             padding-bottom: 1rem;
@@ -52,6 +63,31 @@
 
         .tool-table-container>table>thead>* th {
             border-right: 1px solid var(--table-border-color);
+        }
+
+        :not(thead, tfoot)>*>td {
+            --font-size: 1em;
+        }
+
+        ul.tool-table-cell-list {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        ul.tool-table-cell-list>li {
+            display: inline-block;
+            margin-left: 0.5em;
+            margin-right: 0.5em;
+        }
+
+        .reference-link {
+            font-size: 0.875em;
+            color: #aaa;
+        }
+
+        .reference-link a {
+            color: #ccc;
         }
 
         a.return-top {
@@ -115,18 +151,21 @@
                         <th scope="row"><a href="#{{ tool_info.name }}">{{ tool_info.name }}</a></th>
                         {% for func_key in functionalities.keys() %}
                         <td>
-                            {% for tool_func_info in tool_info.functionalities.get(func_key, []) %}
-                            <span data-tooltip="{{ tool_func_info.explanation }}" class="tooltip-large"
-                                data-placement="bottom">
-                                {% if tool_func_info.icon == "python" %}
-                                {% include "python.svg" %}
-                                {% elif tool_func_info.icon == "conda" %}
-                                {% include "conda.svg" %}
-                                {% else %}
-                                ☑
-                                {% endif %}
-                            </span>
-                            {% endfor %}
+                            <ul class="tool-table-cell-list">
+                                {% for tool_func_info in tool_info.functionalities.get(func_key, []) %}
+                                <li><span data-tooltip="{{ tool_func_info.explanation }}" class="tooltip-large"
+                                        data-placement="bottom">
+                                        {% if tool_func_info.icon == "python" %}
+                                        {% include "python.svg" %}
+                                        {% elif tool_func_info.icon == "conda" %}
+                                        {% include "conda.svg" %}
+                                        {% else %}
+                                        ☑
+                                        {% endif %}
+                                    </span>
+                                </li>
+                                {% endfor %}
+                            </ul>
                         </td>
                         {% endfor %}
                     </tr>
@@ -135,31 +174,36 @@
             </table>
         </section>
         <section>
-            <h2>What's up with {% include "python.svg" %} Python vs. {% include "conda.svg" %} Conda Packages and
-                Environments?</h2>
-            {{ sections["python_vs_conda"].render_text_as_markdown() | safe }}
+            <article>
+                <h2>What's up with {% include "python.svg" %} Python vs. {% include "conda.svg" %} Conda packages and
+                    environments?</h2>
+                {{ sections["python_vs_conda"].render_text_as_markdown() | safe }}
+            </article>
+            <article>
+                <h2>Functionality definitions</h2>
+                <dl>
+                    {% for func_key, func_info in functionalities.items() %}
+                    <dt><strong>{{ func_info.name }}</strong></dt>
+                    <dd>{{ func_info.description }}</dd>
+                    {% endfor %}
+                </dl>
+            </article>
         </section>
         <section>
-            <h2>Functionality Definitions</h2>
-            {% for func_key, func_info in functionalities.items() %}
-            <article>
-                <h3 id="{{ func_key }}">{{ func_info.name }}</h3>
-                <p>{{ func_info.description }}</p>
-            </article>
-            {% endfor %}
             <h2>Tools</h2>
             {% for tool_info in tools %}
             <article>
                 <h3 id="{{ tool_info.name }}">{{ tool_info.name }}</h3>
                 <p>{{ tool_info.description }}</p>
-                <p><small>Website: <a href="{{ tool_info.website }}" target="_blank">{{ tool_info.website }}</a></small>
+                <p class="reference-link">Website: <a href="{{ tool_info.website }}" target="_blank">{{
+                        tool_info.website }}</a>
                 </p>
                 {% for func_key, tool_func_info_list in tool_info.functionalities.items() %}
                 <h4 id="{{ tool_info.name }}-{{ func_key }}">{{functionalities[func_key].name}}</h4>
                 {% for tool_func_info in tool_func_info_list %}
                 <p>{{ tool_func_info.explanation }}</p>
-                <p><small>Reference: <a href="{{ tool_func_info.reference }}" target="_blank">{{
-                            tool_func_info.reference }}</a></small>
+                <p class="reference-link">Reference: <a href="{{ tool_func_info.reference }}" target="_blank">{{
+                        tool_func_info.reference }}</a>
                 </p>
                 {% endfor %}
                 {% endfor %}
