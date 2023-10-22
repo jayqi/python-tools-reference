@@ -1,5 +1,6 @@
 black
 jinja2
+minify-html
 pip-tools
 pydantic
 ruff

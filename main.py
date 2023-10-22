@@ -5,6 +5,7 @@ import textwrap
 from typing import Annotated
 
 from jinja2 import Environment, FileSystemLoader, select_autoescape
+import minify_html
 from pydantic import BaseModel, AfterValidator
 from pydantic.networks import HttpUrl
 
@@ -66,4 +67,8 @@ if __name__ == "__main__":
     print(functionalities)
     print(tools)
     with Path("site/index.html").open("w") as fp:
-        fp.write(template.render(meta=meta, functionalities=functionalities, tools=tools))
+        rendered = template.render(meta=meta, functionalities=functionalities, tools=tools)
+        minified = minify_html.minify(
+            rendered, minify_js=True, remove_processing_instructions=True
+        )
+        fp.write(minified)
