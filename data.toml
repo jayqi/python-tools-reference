@@ -8,7 +8,7 @@ description = """
     Installs multiple versions of Python, and provides ways to switch between them on a global or
     per-project basis.
 """
-[functionalities.creating_virtual_envs]
+[functionalities.creating_a_virtual_env]
 name = "Creating a virtual environment"
 description = """
     Can create a virtual environment, i.e., a specific Python interpreter and an isolated set of
@@ -23,12 +23,13 @@ name = "Managing dependencies"
 description = """
     Provides a way to declare project dependencies and install them into a virtual environment.
 """
-[functionalities.managing_virtual_envs]
-name = "Managing multiple virtual environments"
+[functionalities.automating_virtual_envs]
+name = "Automation of multiple virtual environments"
 description = """
-    Manages multiple virtual environments for a single project at once, such as for testing. This
-    includes creating the virtual environment, declaring and installing dependencies, and tearing
-    them down. Such tools often let one create virtual environments from a matrix of parameters.
+    Automation for the creation, dependency management, and command invocation of multiple virtual
+    environments for a single project. This is often used to manage separate environments for
+    tests, documentation generation, and linting. Such tools often let one create virtual
+    environments from a matrix of parameters.
 """
 [functionalities.writing_lock_files]
 name = "Writing lock files"
@@ -98,7 +99,7 @@ description = "FILL ME IN"
 [[tools.functionalities.managing_python]]
 explanation = "FILL ME IN"
 reference = "https://docs.conda.io/projects/conda/en/stable/user-guide/getting-started.html#managing-python"
-[[tools.functionalities.creating_virtual_envs]]
+[[tools.functionalities.creating_a_virtual_env]]
 explanation = "FILL ME IN"
 reference = "https://docs.conda.io/projects/conda/en/stable/user-guide/getting-started.html#managing-envs"
 icon = "conda"
@@ -118,7 +119,7 @@ description = "FILL ME IN"
 [[tools.functionalities.managing_python]]
 explanation = "FILL ME IN"
 reference = "https://mamba.readthedocs.io/en/latest/user_guide/mamba.html#quickstart"
-[[tools.functionalities.creating_virtual_envs]]
+[[tools.functionalities.creating_a_virtual_env]]
 explanation = "FILL ME IN"
 reference = "https://mamba.readthedocs.io/en/latest/user_guide/mamba.html#quickstart"
 icon = "conda"
@@ -135,7 +136,7 @@ icon = "conda"
 name = "venv"
 website = "https://docs.python.org/3/library/venv.html"
 description = "A Python standard library module for creating virtual environments."
-[[tools.functionalities.creating_virtual_envs]]
+[[tools.functionalities.creating_a_virtual_env]]
 explanation = "FILL ME IN"
 reference = "https://docs.python.org/3/library/venv.html#creating-virtual-environments"
 icon = "python"
@@ -144,7 +145,7 @@ icon = "python"
 name = "virtualenv"
 website = "https://virtualenv.pypa.io/en/latest/"
 description = "FILL ME IN"
-[[tools.functionalities.creating_virtual_envs]]
+[[tools.functionalities.creating_a_virtual_env]]
 explanation = "FILL ME IN"
 reference = "https://virtualenv.pypa.io/en/latest/user_guide.html"
 icon = "python"
@@ -162,7 +163,7 @@ icon = "python"
 name = "tox"
 website = "https://tox.wiki/en/stable/"
 description = "FILL ME IN"
-[[tools.functionalities.managing_virtual_envs]]
+[[tools.functionalities.automating_virtual_envs]]
 explanation = "FILL ME IN"
 reference = "https://tox.wiki/en/4.11.3/user_guide.html"
 
@@ -170,11 +171,11 @@ reference = "https://tox.wiki/en/4.11.3/user_guide.html"
 name = "Nox"
 website = "https://nox.thea.codes/en/stable/"
 description = "FILL ME IN"
-[[tools.functionalities.managing_virtual_envs]]
+[[tools.functionalities.automating_virtual_envs]]
 explanation = "FILL ME IN"
 reference = "https://nox.thea.codes/en/stable/config.html#defining-sessions"
 icon = "python"
-[[tools.functionalities.managing_virtual_envs]]
+[[tools.functionalities.automating_virtual_envs]]
 explanation = "FILL ME IN"
 reference = "https://nox.thea.codes/en/stable/config.html#configuring-a-session-s-virtualenv"
 icon = "conda"
@@ -183,7 +184,7 @@ icon = "conda"
 name = "Pipenv"
 website = "https://pipenv.pypa.io/en/stable/"
 description = "FILL ME IN"
-[[tools.functionalities.creating_virtual_envs]]
+[[tools.functionalities.creating_a_virtual_env]]
 explanation = "FILL ME IN"
 reference = "https://pipenv.pypa.io/en/latest/installation/#virtualenv-mapping-caveat"
 icon = "python"
@@ -200,11 +201,11 @@ icon = "python"
 name = "Hatch"
 website = "https://hatch.pypa.io/latest/"
 description = "FILL ME IN"
-[[tools.functionalities.creating_virtual_envs]]
+[[tools.functionalities.creating_a_virtual_env]]
 explanation = "FILL ME IN"
 reference = "https://hatch.pypa.io/latest/environment/#creation"
 icon = "python"
-[[tools.functionalities.managing_virtual_envs]]
+[[tools.functionalities.automating_virtual_envs]]
 explanation = "FILL ME IN"
 reference = "https://hatch.pypa.io/latest/environment/"
 icon = "python"
@@ -225,11 +226,11 @@ icon = "python"
 name = "Poetry"
 website = "https://python-poetry.org/"
 description = "FILL ME IN"
-[[tools.functionalities.creating_virtual_envs]]
+[[tools.functionalities.creating_a_virtual_env]]
 explanation = "FILL ME IN"
 reference = "https://python-poetry.org/docs/basic-usage/#using-your-virtual-environment"
 icon = "python"
-[[tools.functionalities.managing_virtual_envs]]
+[[tools.functionalities.automating_virtual_envs]]
 explanation = "FILL ME IN"
 reference = "https://python-poetry.org/docs/managing-environments/"
 icon = "python"
@@ -253,10 +254,10 @@ icon = "python"
 name = "PDM"
 website = "https://pdm.fming.dev/latest/"
 description = "FILL ME IN"
-[[tools.functionalities.creating_virtual_envs]]
+[[tools.functionalities.creating_a_virtual_env]]
 explanation = "FILL ME IN"
 reference = "https://pdm.fming.dev/latest/usage/venv/"
-[[tools.functionalities.managing_virtual_envs]]
+[[tools.functionalities.automating_virtual_envs]]
 explanation = "FILL ME IN"
 reference = "https://pdm.fming.dev/latest/usage/venv/"
 [[tools.functionalities.managing_dependencies]]
@@ -273,7 +274,7 @@ description = "FILL ME IN"
 [[tools.functionalities.managing_python]]
 explanation = "FILL ME IN"
 reference = "https://github.com/mitsuhiko/rye#some-of-the-things-it-does"
-[[tools.functionalities.creating_virtual_envs]]
+[[tools.functionalities.creating_a_virtual_env]]
 explanation = "FILL ME IN"
 reference = "https://rye-up.com/guide/basics/#first-sync"
 [[tools.functionalities.managing_dependencies]]

@@ -100,7 +100,7 @@
                 <tbody>
                     {% for tool_info in tools %}
                     <tr>
-                        <th scope="row">{{ tool_info.name }}</th>
+                        <th scope="row"><a href="#{{ tool_info.name }}">{{ tool_info.name }}</a></th>
                         {% for func_key in functionalities.keys() %}
                         <td>
                             {% for tool_func_info in tool_info.functionalities.get(func_key, []) %}
@@ -125,31 +125,34 @@
         <section>
             <h2>What's up with {% include "python.svg" %} Python vs. {% include "conda.svg" %} Conda Packages and
                 Environments?</h2>
-            <p></p>
+            <p>...</p>
         </section>
         <section>
             <h2>Functionality Definitions</h2>
-            {% for func_info in functionalities.values() %}
+            {% for func_key, func_info in functionalities.items() %}
             <article>
-                <h3>{{ func_info.name }}</h3>
+                <h3 id="{{ func_key }}">{{ func_info.name }}</h3>
                 <p>{{ func_info.description }}</p>
             </article>
             {% endfor %}
             <h2>Tools</h2>
             {% for tool_info in tools %}
             <article>
-                <h3>{{ tool_info.name }}</h3>
+                <h3 id="{{ tool_info.name }}">{{ tool_info.name }}</h3>
                 <p>{{ tool_info.description }}</p>
+                <p><small>Website: <a href="{{ tool_info.website }}" target="_blank">{{ tool_info.website }}</a></small>
+                </p>
                 {% for func_key, tool_func_info_list in tool_info.functionalities.items() %}
-                <h4>{{functionalities[func_key].name}}</h4>
+                <h4 id="{{ tool_info.name }}-{{ func_key }}">{{functionalities[func_key].name}}</h4>
                 {% for tool_func_info in tool_func_info_list %}
                 <p>{{ tool_func_info.explanation }}</p>
-                <p><small>Reference: <a href="{{ tool_func_info.reference }}">{{ tool_func_info.reference }}</a></small>
+                <p><small>Reference: <a href="{{ tool_func_info.reference }}" target="_blank">{{
+                            tool_func_info.reference }}</a></small>
                 </p>
                 {% endfor %}
                 {% endfor %}
             </article>
-            {%endfor%}
+            {% endfor %}
             <a class="return-top" href="#" role="button">Return to Top &#8593;</a>
         </section>
     </main>
