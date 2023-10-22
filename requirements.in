@@ -1,6 +1,6 @@
 black
 jinja2
-minify-html
+minify-html-onepass
 pip-tools
 pydantic
 ruff

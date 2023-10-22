@@ -5,11 +5,11 @@ import textwrap
 from typing import Annotated
 
 from jinja2 import Environment, FileSystemLoader, select_autoescape
-import minify_html
+import minify_html_onepass
 from pydantic import BaseModel, AfterValidator
 from pydantic.networks import HttpUrl
 
-env = Environment(loader=FileSystemLoader("templates"), autoescape=select_autoescape())
+env = Environment(loader=FileSystemLoader("templates"), autoescape=True)
 
 template = env.get_template("index.html.jinja")
 
@@ -68,7 +68,9 @@ if __name__ == "__main__":
     print(tools)
     with Path("site/index.html").open("w") as fp:
         rendered = template.render(meta=meta, functionalities=functionalities, tools=tools)
-        minified = minify_html.minify(
-            rendered, minify_js=True, remove_processing_instructions=True
+        minified = minify_html_onepass.minify(
+            rendered,
+            minify_css=True,
+            minify_js=True,
         )
         fp.write(minified)
