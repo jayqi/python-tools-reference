@@ -1,88 +1,140 @@
+[meta]
+site_url = "https://jayqi.github.io/python-tools-reference/"
+
 [functionalities]
 [functionalities.managing_python]
 name = "Managing Python installations"
-description = "Installs multiple versions of Python, and provides ways to switch between them on a global or per-project basis."
+description = """
+    Installs multiple versions of Python, and provides ways to switch between them on a global or
+    per-project basis.
+"""
 [functionalities.creating_virtual_envs]
 name = "Creating a virtual environment"
-description = "Can create a virtual environment, i.e., a specific Python interpreter and an isolated set of installed Python packages. Typically, a Python project uses at least one virtual environment. This may be a standalone virtual environment stored in a central location, or it may be inside a project directory and tied to that project. There are two kinds of virtual environments relevant to Python development: regular Python virtual environments; and Conda environments which can include other non-Python software packages."
+description = """
+    Can create a virtual environment, i.e., a specific Python interpreter and an isolated set of
+    installed Python packages. Typically, a Python project uses at least one virtual environment.
+    This may be a standalone virtual environment stored in a central location, or it may be inside
+    a project directory and tied to that project. There are two kinds of virtual environments
+    relevant to Python development: regular Python virtual environments; and Conda environments
+    which can include other non-Python software packages.
+"""
 [functionalities.managing_dependencies]
 name = "Managing dependencies"
-description = "Provides a way to declare project dependencies and install them into a virtual environment."
+description = """
+    Provides a way to declare project dependencies and install them into a virtual environment.
+"""
 [functionalities.managing_virtual_envs]
 name = "Managing multiple virtual environments"
-description = "Manages multiple virtual environments for a single project at once, such as for testing. This includes creating the virtual environment, declaring and installing dependencies, and tearing them down. Such tools often let one create virtual environments from a matrix of parameters."
+description = """
+    Manages multiple virtual environments for a single project at once, such as for testing. This
+    includes creating the virtual environment, declaring and installing dependencies, and tearing
+    them down. Such tools often let one create virtual environments from a matrix of parameters.
+"""
 [functionalities.writing_lock_files]
 name = "Writing lock files"
-description = "Lock files specify the exact set of packages installed in an environment with exact versions. They allow for reproducing that environment."
+description = """
+    Lock files specify the exact set of packages installed in an environment with exact versions.
+    They allow for reproducing that environment.
+"""
 [functionalities.building_packages]
 name = "Building packages"
-description = "Creating file archives of Python code that can be distributed and installed by other users. There are two kinds of packages common for Python: regular Python packages distributed on PyPI, and conda packages "
+description = """
+    Creating file archives of Python code that can be distributed and installed by other users.
+    There are two kinds of packages common for Python: regular Python packages distributed on PyPI,
+    and conda packages.
+"""
 [functionalities.publishing_packages]
 name = "Publishing packages"
-description = "Publishing Python packages to PyPI or conda packages to conda-forge."
+description = """
+    Publishing Python packages to PyPI or conda packages to conda-forge.
+"""
 
 [[tools]]
 name = "pyenv"
-description = "FILL ME IN"
+website = "https://github.com/pyenv/pyenv"
+description = """
+    pyenv is a tool that installs multiple versions of Python and lets you switch between them.
+"""
 [[tools.functionalities.managing_python]]
-explanation = "FILL ME IN"
+explanation = """
+    pyenv has an `install` command for installing Python versions, a `global` command for setting
+    a global Python version, and a `local` command for setting a per-project Python version.
+"""
 reference = "https://github.com/pyenv/pyenv#what-pyenv-does"
 
 [[tools]]
 name = "asdf"
-description = "FILL ME IN"
+website = "https://asdf-vm.com/"
+description = """
+    asdf is a tool for managing multiple versions of many language runtimes. It supports managing
+    Python through the asdf-python plugin.
+"""
 [[tools.functionalities.managing_python]]
-explanation = "FILL ME IN"
+explanation = """
+    asdf with the asdf-python plugin has an `install python` command for installing Python
+    versions, a `global python` command for setting a global Python version, and a `local python`
+    command for setting a per-project Python version.
+"""
 reference = "https://github.com/asdf-community/asdf-python"
 
 [[tools]]
 name = "rtx"
-description = "FILL ME IN"
+website = "https://github.com/jdx/rtx"
+description = """
+    rtx is a tool for managing multiple versions of many language runtimes, including Python. It
+    started out as a clone of asdf implemented in Rust.
+"""
 [[tools.functionalities.managing_python]]
-explanation = "FILL ME IN"
+explanation = """
+    rtx has an `install python@<version>` command for installing Python versions and a
+    `use python@<version>` command for setting an active Python version.
+"""
 reference = "https://github.com/jdx/rtx/blob/main/docs/python.md"
 
 [[tools]]
 name = "conda"
+website = "https://docs.conda.io/en/latest/"
 description = "FILL ME IN"
 [[tools.functionalities.managing_python]]
 explanation = "FILL ME IN"
-reference = "FILL ME IN"
+reference = "https://docs.conda.io/projects/conda/en/stable/user-guide/getting-started.html#managing-python"
 [[tools.functionalities.creating_virtual_envs]]
 explanation = "FILL ME IN"
-reference = "FILL ME IN"
+reference = "https://docs.conda.io/projects/conda/en/stable/user-guide/getting-started.html#managing-envs"
 icon = "conda"
 [[tools.functionalities.managing_dependencies]]
 explanation = "FILL ME IN"
-reference = "FILL ME IN"
+reference = "https://docs.conda.io/projects/conda/en/stable/user-guide/getting-started.html#managing-pkgs"
 icon = "python"
 [[tools.functionalities.managing_dependencies]]
 explanation = "FILL ME IN"
-reference = "FILL ME IN"
+reference = "https://docs.conda.io/projects/conda/en/stable/user-guide/getting-started.html#managing-pkgs"
 icon = "conda"
 
 [[tools]]
 name = "mamba"
+website = "https://mamba.readthedocs.io/en/stable/"
 description = "FILL ME IN"
 [[tools.functionalities.managing_python]]
 explanation = "FILL ME IN"
-reference = "FILL ME IN"
+reference = "https://mamba.readthedocs.io/en/latest/user_guide/mamba.html#quickstart"
 [[tools.functionalities.creating_virtual_envs]]
 explanation = "FILL ME IN"
-reference = "FILL ME IN"
+reference = "https://mamba.readthedocs.io/en/latest/user_guide/mamba.html#quickstart"
 icon = "conda"
 [[tools.functionalities.managing_dependencies]]
 explanation = "FILL ME IN"
-reference = "FILL ME IN"
+reference = "https://mamba.readthedocs.io/en/latest/user_guide/mamba.html#quickstart"
 icon = "python"
 [[tools.functionalities.managing_dependencies]]
 explanation = "FILL ME IN"
-reference = "FILL ME IN"
+reference = "https://mamba.readthedocs.io/en/latest/user_guide/mamba.html#quickstart"
 icon = "conda"
 
 [[tools]]
 name = "venv"
-description = "FILL ME IN"
+website = "https://docs.python.org/3/library/venv.html"
+description = "A Python standard library module for creating virtual environments."
 [[tools.functionalities.creating_virtual_envs]]
 explanation = "FILL ME IN"
 reference = "https://docs.python.org/3/library/venv.html#creating-virtual-environments"
@@ -90,53 +142,63 @@ icon = "python"
 
 [[tools]]
 name = "virtualenv"
+website = "https://virtualenv.pypa.io/en/latest/"
 description = "FILL ME IN"
 [[tools.functionalities.creating_virtual_envs]]
 explanation = "FILL ME IN"
-reference = "FILL ME IN"
+reference = "https://virtualenv.pypa.io/en/latest/user_guide.html"
 icon = "python"
 
 [[tools]]
 name = "Pip"
+website = "https://pip.pypa.io/en/stable/"
 description = "FILL ME IN"
 [[tools.functionalities.managing_dependencies]]
 explanation = "FILL ME IN"
-reference = "FILL ME IN"
+reference = "https://pip.pypa.io/en/stable/getting-started/"
 icon = "python"
 
 [[tools]]
-name = "Tox"
+name = "tox"
+website = "https://tox.wiki/en/stable/"
 description = "FILL ME IN"
 [[tools.functionalities.managing_virtual_envs]]
 explanation = "FILL ME IN"
-reference = "FILL ME IN"
+reference = "https://tox.wiki/en/4.11.3/user_guide.html"
 
 [[tools]]
 name = "Nox"
+website = "https://nox.thea.codes/en/stable/"
 description = "FILL ME IN"
 [[tools.functionalities.managing_virtual_envs]]
 explanation = "FILL ME IN"
-reference = "FILL ME IN"
+reference = "https://nox.thea.codes/en/stable/config.html#defining-sessions"
 icon = "python"
 [[tools.functionalities.managing_virtual_envs]]
 explanation = "FILL ME IN"
-reference = "FILL ME IN"
+reference = "https://nox.thea.codes/en/stable/config.html#configuring-a-session-s-virtualenv"
 icon = "conda"
 
 [[tools]]
 name = "Pipenv"
+website = "https://pipenv.pypa.io/en/stable/"
 description = "FILL ME IN"
 [[tools.functionalities.creating_virtual_envs]]
 explanation = "FILL ME IN"
-reference = "FILL ME IN"
+reference = "https://pipenv.pypa.io/en/latest/installation/#virtualenv-mapping-caveat"
 icon = "python"
 [[tools.functionalities.managing_dependencies]]
 explanation = "FILL ME IN"
-reference = "FILL ME IN"
+reference = "https://pipenv.pypa.io/en/stable/installation/#installing-packages-for-your-project"
+icon = "python"
+[[tools.functionalities.writing_lock_files]]
+explanation = "FILL ME IN"
+reference = "https://pipenv.pypa.io/en/stable/installation/#installing-packages-for-your-project"
 icon = "python"
 
 [[tools]]
 name = "Hatch"
+website = "https://hatch.pypa.io/latest/"
 description = "FILL ME IN"
 [[tools.functionalities.creating_virtual_envs]]
 explanation = "FILL ME IN"
@@ -148,7 +210,7 @@ reference = "https://hatch.pypa.io/latest/environment/"
 icon = "python"
 [[tools.functionalities.managing_dependencies]]
 explanation = "FILL ME IN"
-reference = "FILL ME IN"
+reference = "https://hatch.pypa.io/latest/environment/#dependencies"
 icon = "python"
 [[tools.functionalities.building_packages]]
 explanation = "FILL ME IN"
@@ -161,26 +223,35 @@ icon = "python"
 
 [[tools]]
 name = "Poetry"
+website = "https://python-poetry.org/"
 description = "FILL ME IN"
 [[tools.functionalities.creating_virtual_envs]]
 explanation = "FILL ME IN"
-reference = "FILL ME IN"
+reference = "https://python-poetry.org/docs/basic-usage/#using-your-virtual-environment"
 icon = "python"
 [[tools.functionalities.managing_virtual_envs]]
 explanation = "FILL ME IN"
-reference = "FILL ME IN"
+reference = "https://python-poetry.org/docs/managing-environments/"
 icon = "python"
 [[tools.functionalities.managing_dependencies]]
 explanation = "FILL ME IN"
-reference = "FILL ME IN"
+reference = "https://python-poetry.org/docs/basic-usage/#specifying-dependencies"
 icon = "python"
+[[tools.functionalities.writing_lock_files]]
+explanation = "FILL ME IN"
+reference = "https://python-poetry.org/docs/basic-usage/#installing-without-poetrylock"
 [[tools.functionalities.building_packages]]
 explanation = "FILL ME IN"
-reference = "FILL ME IN"
+reference = "https://python-poetry.org/docs/libraries/#packaging"
+icon = "python"
+[[tools.functionalities.publishing_packages]]
+explanation = "FILL ME IN"
+reference = "https://python-poetry.org/docs/libraries/#publishing-to-pypi"
 icon = "python"
 
 [[tools]]
 name = "PDM"
+website = "https://pdm.fming.dev/latest/"
 description = "FILL ME IN"
 [[tools.functionalities.creating_virtual_envs]]
 explanation = "FILL ME IN"
@@ -197,6 +268,7 @@ reference = "https://pdm.fming.dev/latest/usage/publish/"
 
 [[tools]]
 name = "Rye"
+website = "https://rye-up.com/"
 description = "FILL ME IN"
 [[tools.functionalities.managing_python]]
 explanation = "FILL ME IN"
@@ -212,27 +284,30 @@ explanation = "FILL ME IN"
 reference = "https://rye-up.com/guide/sync/"
 [[tools.functionalities.building_packages]]
 explanation = "Rye provides a `build` command to build packages, which uses build under the hood."
-reference = "hhttps://rye-up.com/guide/publish/"
+reference = "https://rye-up.com/guide/publish/"
 [[tools.functionalities.publishing_packages]]
 explanation = "Rye provides a `publish` command to publish to PyPI, which uses twine under the hood."
 reference = "https://rye-up.com/guide/publish/"
 
 [[tools]]
 name = "pip-compile"
+website = "https://github.com/jazzband/pip-tools/"
 description = "FILL ME IN"
 [[tools.functionalities.writing_lock_files]]
 explanation = "FILL ME IN"
-reference = "FILL ME IN"
+reference = "https://github.com/jazzband/pip-tools/#example-usage-for-pip-compile"
 
 [[tools]]
 name = "conda-lock"
+website = "https://github.com/conda/conda-lock"
 description = "FILL ME IN"
 [[tools.functionalities.writing_lock_files]]
 explanation = "FILL ME IN"
-reference = "FILL ME IN"
+reference = "https://github.com/conda/conda-lock#basic-usage"
 
 [[tools]]
 name = "Build"
+website = "https://pypa-build.readthedocs.io/en/stable/"
 description = "FILL ME IN"
 [[tools.functionalities.building_packages]]
 explanation = "FILL ME IN"
@@ -240,6 +315,7 @@ reference = "https://pypa-build.readthedocs.io/en/stable/index.html"
 
 [[tools]]
 name = "Twine"
+website = "https://twine.readthedocs.io/en/stable/"
 description = "FILL ME IN"
 [[tools.functionalities.publishing_packages]]
 explanation = "FILL ME IN"
@@ -247,7 +323,11 @@ reference = "https://twine.readthedocs.io/en/stable/"
 
 [[tools]]
 name = "Flit"
+website = "https://flit.pypa.io/en/stable/"
 description = "FILL ME IN"
 [[tools.functionalities.building_packages]]
 explanation = "FILL ME IN"
-reference = "FILL ME IN"
+reference = "https://flit.pypa.io/en/stable/index.html#usage"
+[[tools.functionalities.publishing_packages]]
+explanation = "FILL ME IN"
+reference = "https://flit.pypa.io/en/stable/upload.html"
