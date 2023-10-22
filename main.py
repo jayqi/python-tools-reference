@@ -1,10 +1,12 @@
 from enum import StrEnum
 from pathlib import Path
+import re
 import tomllib
 import textwrap
 from typing import Annotated
 
 from jinja2 import Environment, FileSystemLoader, select_autoescape
+import markdown
 import minify_html_onepass
 from pydantic import BaseModel, AfterValidator
 from pydantic.networks import HttpUrl
@@ -13,9 +15,11 @@ env = Environment(loader=FileSystemLoader("templates"), autoescape=True)
 
 template = env.get_template("index.html.jinja")
 
+nonparagraph_line_break = re.compile(r"(?<!\n)\n(?!\n)")
+
 
 def unwrap(text: str):
-    return textwrap.dedent(text.strip()).replace("\n", " ")
+    return nonparagraph_line_break.sub(" ", textwrap.dedent(text).strip())
 
 
 LongStr = Annotated[str, AfterValidator(unwrap)]
@@ -23,6 +27,13 @@ LongStr = Annotated[str, AfterValidator(unwrap)]
 
 class Meta(BaseModel):
     site_url: str
+
+
+class Section(BaseModel):
+    text: LongStr
+
+    def render_text_as_markdown(self):
+        return markdown.markdown(self.text)
 
 
 class FunctionalityInfo(BaseModel):
@@ -48,6 +59,8 @@ if __name__ == "__main__":
 
     meta = Meta.model_validate(data["meta"])
 
+    sections = {key: Section.model_validate(value) for key, value in data["sections"].items()}
+
     FunctionalitiesEnum = StrEnum(
         "FunctionalitiesEnum", {k.upper(): k for k in data["functionalities"].keys()}
     )
@@ -67,7 +80,9 @@ if __name__ == "__main__":
     print(functionalities)
     print(tools)
     with Path("site/index.html").open("w") as fp:
-        rendered = template.render(meta=meta, functionalities=functionalities, tools=tools)
+        rendered = template.render(
+            meta=meta, sections=sections, functionalities=functionalities, tools=tools
+        )
         minified = minify_html_onepass.minify(
             rendered,
             minify_css=True,

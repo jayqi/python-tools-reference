@@ -79,12 +79,24 @@
 
 <body>
     <main class="container">
+        <nav>
+            <ul>
+                <li>
+                    <h1 style="margin-bottom: 0px;">Python Developer Tools Reference</h1>
+                </li>
+            </ul>
+            <ul>
+                <li><span><a href="https://github.com/jayqi/python-tools-reference">{% include "github.svg"
+                            %}&nbsp;GitHub</a></span></li>
+            </ul>
+        </nav>
         <section class="container">
-            <h1>Python Developer Tools Reference</h1>
+
             <blockquote><strong>🚧 This reference is still under construction. Please do not yet widely share.</strong>
             </blockquote>
-            <p>A reference on how various popular Python tools cover the different functionalities involved in Python
-                development.</p>
+            <p>This website is reference on how various popular Python tools cover the different functionalities
+                involved in Python
+                development. </p>
         </section>
         <section class="tool-table-container">
             <table role="grid">
@@ -125,7 +137,7 @@
         <section>
             <h2>What's up with {% include "python.svg" %} Python vs. {% include "conda.svg" %} Conda Packages and
                 Environments?</h2>
-            <p>...</p>
+            {{ sections["python_vs_conda"].render_text_as_markdown() | safe }}
         </section>
         <section>
             <h2>Functionality Definitions</h2>
@@ -158,21 +170,23 @@
     </main>
     <footer class="container">
         <small>
-            <p xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/"><a property="dct:title"
-                    rel="cc:attributionURL" href="{{ meta.site_url }}">"Python Developer Tools
-                    Reference"</a> copyright © 2023 by <a rel="cc:attributionURL dct:creator"
-                    property="cc:attributionName" href="https://jayqi.com">Jay Qi</a> is licensed under <a
-                    href="http://creativecommons.org/licenses/by-nc-nd/4.0/?ref=chooser-v1" target="_blank"
-                    rel="license noopener noreferrer" style="display:inline-block;">CC BY-NC-ND 4.0<img
-                        style="height:14px!important;margin-left:3px;vertical-align:text-bottom;"
-                        src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1"><img
-                        style="height:14px!important;margin-left:3px;vertical-align:text-bottom;"
-                        src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1"><img
-                        style="height:14px!important;margin-left:3px;vertical-align:text-bottom;"
-                        src="https://mirrors.creativecommons.org/presskit/icons/nc.svg?ref=chooser-v1"><img
-                        style="height:14px!important;margin-left:3px;vertical-align:text-bottom;"
-                        src="https://mirrors.creativecommons.org/presskit/icons/nd.svg?ref=chooser-v1"></a>. Python and
-                Conda icons by <a href="https://icons8.com/icons">Icons8</a>.</p>
+            <p>
+                <span xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/">
+                    <a property="dct:title" rel="cc:attributionURL" href="{{ meta.site_url }}">"Python Developer Tools
+                        Reference"</a> copyright © 2023 by <a rel="cc:attributionURL dct:creator"
+                        property="cc:attributionName" href="https://jayqi.com">Jay Qi</a> is licensed under <a
+                        href="http://creativecommons.org/licenses/by-nc-nd/4.0/?ref=chooser-v1" target="_blank"
+                        rel="license noopener noreferrer" style="display:inline-block;">CC BY-NC-ND 4.0<img
+                            style="height:14px!important;margin-left:3px;vertical-align:text-bottom;"
+                            src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1"><img
+                            style="height:14px!important;margin-left:3px;vertical-align:text-bottom;"
+                            src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1"><img
+                            style="height:14px!important;margin-left:3px;vertical-align:text-bottom;"
+                            src="https://mirrors.creativecommons.org/presskit/icons/nc.svg?ref=chooser-v1"><img
+                            style="height:14px!important;margin-left:3px;vertical-align:text-bottom;"
+                            src="https://mirrors.creativecommons.org/presskit/icons/nd.svg?ref=chooser-v1"></a>.</span>
+                GitHub, Python, and Conda icons by <a href="https://icons8.com/icons">Icons8</a>.
+            </p>
         </small>
     </footer>
 </body>

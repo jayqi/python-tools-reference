@@ -1,6 +1,33 @@
 [meta]
 site_url = "https://jayqi.github.io/python-tools-reference/"
 
+[sections]
+[sections.python_vs_conda]
+text = """
+    **Python packages** are distributable archives of Python code. Even if a Python package
+    includes code in another language, like C++ or Rust, the package would have Python "bindings"
+    that allow that code to be called from Python. **Virtual environments** are isolated and
+    independent sets of installed software, and it's a best practice to have a virtual environment
+    per project. **Python environments** then refers to virtual environments for Python packages.
+
+    On the other hand, **Conda packages** are distributable archives of software in any language.
+    They could include Python libraries, but system libraries, R libraries, Julia libraries, and
+    other executable programs are also often distributed as Conda packages. **Conda environments**
+    are accordingly virtual environments for Conda packages. However, Python has a special level of
+    support in the Conda ecosystem, and you can actually use
+    [pip to install Python packages](https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-pkgs.html)
+    into a Conda environment as if it were a Python virtual environment. Those Python packages will
+    be available in the Conda environment alongside any Conda packages.
+
+    **Which kind of package ecosystem should you use?** If you are working with exclusively Python
+    packages, you will likely have a better experience using Python virtual environments and Python
+    package tools. The experience will be simpler, and you'll be able to install packages more
+    quickly and easily. However, if you are likely to need software in other languages, or if your
+    Python dependencies have dependencies on system-level libraries (e.g., scientific computing and
+    deep learning frameworks often depend on system-level linear algebra libraries), then Conda
+    can be useful for handling it all.
+"""
+
 [functionalities]
 [functionalities.managing_python]
 name = "Managing Python installations"
