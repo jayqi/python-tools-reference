@@ -110,7 +110,10 @@
         svg.icon {
             height: 1em;
             width: 1em;
+            margin-bottom: 0.2em;
         }
+
+        h2 svg.icon {}
     </style>
     {# <style>
         .tool-table {
@@ -139,9 +142,7 @@
 
             <blockquote><strong>🚧 This reference is still under construction. Please do not yet widely share.</strong>
             </blockquote>
-            <p>This website is reference on how various popular Python tools cover the different functionalities
-                involved in Python
-                development. </p>
+            {{ sections["intro"].render_text_as_markdown() | safe}}
         </section>
         <section class="tool-table-container">
             <table role="grid">
@@ -204,11 +205,11 @@
             <article>
                 <h3 id="{{ tool_info.name }}">{{ tool_info.name }} {% if tool_info.github %}<a
                         href="https://github.com/{{ tool_info.github }}"><img
-                            style="margin-left: 1em; margin-bottom: 0.25em;" alt="GitHub Repo stars"
+                            style="margin-left: 1em; margin-bottom: 0.20em;" alt="GitHub Repo stars"
                             src="https://img.shields.io/github/stars/{{ tool_info.github }}?logo=github&label=%E2%98%86%20{{ tool_info.github | urlencode}}"></a>{%
                     endif %}
                 </h3>
-                <p>{{ tool_info.description }}</p>
+                {{ tool_info.render_description_as_markdown() | safe }}
                 <p class="reference-link">Website: <a href="{{ tool_info.website }}" target="_blank">{{
                         tool_info.website }}</a>
                 </p>
@@ -218,7 +219,7 @@
                     <dt id="{{ tool_info.name }}-{{ func_key }}">{{functionalities[func_key].name}}</dt>
                     {% for tool_func_info in tool_func_info_list %}
                     <dd>
-                        <p>{{ tool_func_info.explanation }}</p>
+                        {{ tool_func_info.render_explanation_as_markdown() | safe }}
                         <p class="reference-link">Reference: <a href="{{ tool_func_info.reference }}" target="_blank">{{
                                 tool_func_info.reference }}</a>
                         </p>

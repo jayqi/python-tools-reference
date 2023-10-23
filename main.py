@@ -52,6 +52,9 @@ class ToolFunctionalityInfo(BaseModel):
     reference: HttpUrl
     icon: IconEnum = IconEnum.DEFAULT
 
+    def render_explanation_as_markdown(self):
+        return markdown.markdown(self.explanation)
+
 
 if __name__ == "__main__":
     with Path("data.toml").open("rb") as fp:
@@ -61,6 +64,7 @@ if __name__ == "__main__":
 
     sections = {key: Section.model_validate(value) for key, value in data["sections"].items()}
 
+    # Define an enum from the keys in the functionalities table
     FunctionalitiesEnum = StrEnum(
         "FunctionalitiesEnum", {k.upper(): k for k in data["functionalities"].keys()}
     )
@@ -70,16 +74,18 @@ if __name__ == "__main__":
         for key, value in data["functionalities"].items()
     }
 
+    # Define this class dynamically because we want to validate the enum values
     class ToolInfo(BaseModel):
         name: str
-        description: str
+        description: LongStr
         github: str | None = None
         website: HttpUrl
         functionalities: dict[FunctionalitiesEnum, list[ToolFunctionalityInfo]]
 
+        def render_description_as_markdown(self):
+            return markdown.markdown(self.description)
+
     tools = [ToolInfo.model_validate(item) for item in data["tools"]]
-    print(functionalities)
-    print(tools)
     with Path("site/index.html").open("w") as fp:
         rendered = template.render(
             meta=meta, sections=sections, functionalities=functionalities, tools=tools
