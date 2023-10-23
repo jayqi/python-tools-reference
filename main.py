@@ -5,7 +5,7 @@ import textwrap
 import tomllib
 from typing import Annotated
 
-from jinja2 import Environment, FileSystemLoader, select_autoescape
+from jinja2 import Environment, FileSystemLoader
 import markdown
 import minify_html_onepass
 from pydantic import AfterValidator, BaseModel
