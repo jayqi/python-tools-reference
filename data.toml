@@ -2,6 +2,12 @@
 site_url = "https://jayqi.github.io/python-tools-reference/"
 
 [sections]
+[sections.intro]
+text = """
+    This website is reference on how various popular Python tools cover different functionalities
+    involved in Python development. Inclusion of tools is by judgment of the author. This reference
+    generally does not provide opinions about choosing between alterative tools.
+"""
 [sections.python_vs_conda]
 text = """
     **Python packages** are distributable archives of Python code. Even if a Python package
@@ -23,9 +29,9 @@ text = """
     packages, you will likely have a better experience using Python virtual environments and Python
     package tools. The experience will be simpler, and you'll be able to install packages more
     quickly and easily. However, if you are likely to need software in other languages, or if your
-    Python dependencies have dependencies on system-level libraries (e.g., scientific computing and
-    deep learning frameworks often depend on system-level linear algebra libraries), then Conda
-    can be useful for handling it all.
+    Python dependencies have dependencies on system-level libraries (e.g., scientific computing,
+    data science, and machine learning frameworks often depend on system-level linear algebra
+    libraries), then Conda can be useful for handling everything together.
 """
 
 [functionalities]
@@ -53,10 +59,10 @@ description = """
 [functionalities.automating_virtual_envs]
 name = "Automation of multiple virtual environments"
 description = """
-    Automation for the creation, dependency management, and command invocation of multiple virtual
+    Automation for creation, dependency management, and task invocation for multiple virtual
     environments for a single project. This is often used to manage separate environments for
-    tests, documentation generation, and linting. Such tools often let one create virtual
-    environments from a matrix of parameters.
+    tests, documentation generation, linting, and other tasks. Such tools often let you create
+    virtual environments from a matrix of parameters.
 """
 [functionalities.writing_lock_files]
 name = "Writing lock files"
@@ -69,12 +75,12 @@ name = "Building packages"
 description = """
     Creating file archives of Python code that can be distributed and installed by other users.
     There are two kinds of packages common for Python: regular Python packages distributed on PyPI,
-    and conda packages.
+    and Conda packages which can be code in any language but often is used with Python.
 """
 [functionalities.publishing_packages]
 name = "Publishing packages"
 description = """
-    Publishing Python packages to PyPI or conda packages to conda-forge.
+    Publishing Python packages to PyPI or Conda packages to conda-forge.
 """
 
 [[tools]]
@@ -86,8 +92,9 @@ description = """
 """
 [[tools.functionalities.managing_python]]
 explanation = """
-    pyenv has an `install` command for installing Python versions, a `global` command for setting
-    a global Python version, and a `local` command for setting a per-project Python version.
+    pyenv has an `pyenv install` command for installing Python versions, a `pyenv global` command
+    for setting a global Python version, and a `pyenv local` command for setting a per-project
+    Python version.
 """
 reference = "https://github.com/pyenv/pyenv#what-pyenv-does"
 
@@ -101,9 +108,9 @@ description = """
 """
 [[tools.functionalities.managing_python]]
 explanation = """
-    asdf with the asdf-python plugin has an `install python` command for installing Python
-    versions, a `global python` command for setting a global Python version, and a `local python`
-    command for setting a per-project Python version.
+    asdf with the asdf-python plugin has an `asdf install python` command for installing Python
+    versions, a `asdf global python` command for setting a global Python version, and a
+    `asdf local python` command for setting a per-project Python version.
 """
 reference = "https://github.com/asdf-community/asdf-python"
 
@@ -117,8 +124,8 @@ description = """
 """
 [[tools.functionalities.managing_python]]
 explanation = """
-    rtx has an `install python@<version>` command for installing Python versions and a
-    `use python@<version>` command for setting an active Python version.
+    rtx has an `rtx install python@<version>` command for installing Python versions and a
+    `rtx use python@<version>` command for setting an active Python version.
 """
 reference = "https://github.com/jdx/rtx/blob/main/docs/python.md"
 
@@ -126,9 +133,16 @@ reference = "https://github.com/jdx/rtx/blob/main/docs/python.md"
 name = "conda"
 github = "conda/conda"
 website = "https://docs.conda.io/en/latest/"
-description = "FILL ME IN"
+description = """
+    Conda is a cross-platform package and virtual environment manager. Conda packages can include
+    libraries or executables in any language.
+"""
 [[tools.functionalities.managing_python]]
-explanation = "FILL ME IN"
+explanation = """
+    Conda allows you to install any version of Python as an isolated Python runtime in conda
+    environment. To use that instance of Python, you will need to either activate the environment
+    or use `conda run -n <envname>`.
+"""
 reference = "https://docs.conda.io/projects/conda/en/stable/user-guide/getting-started.html#managing-python"
 [[tools.functionalities.creating_a_virtual_env]]
 explanation = "FILL ME IN"
@@ -169,7 +183,7 @@ name = "venv"
 website = "https://docs.python.org/3/library/venv.html"
 description = "A Python standard library module for creating virtual environments."
 [[tools.functionalities.creating_a_virtual_env]]
-explanation = "FILL ME IN"
+explanation = "The venv modulle lets you create a virtual environment with `python -m venv`."
 reference = "https://docs.python.org/3/library/venv.html#creating-virtual-environments"
 icon = "python"
 
@@ -187,9 +201,16 @@ icon = "python"
 name = "Pip"
 github = "pypa/pip"
 website = "https://pip.pypa.io/en/stable/"
-description = "FILL ME IN"
+description = """
+    Pip is the standard package installer for Python. Python installations generally come with pip
+    pre-installed.
+"""
 [[tools.functionalities.managing_dependencies]]
-explanation = "FILL ME IN"
+explanation = """
+    Pip has an `pip install` command for installing packages, either from a local distribution or
+    from PyPI. It also has a `requirements.txt` requirements file specification that it can read
+    and install from.
+"""
 reference = "https://pip.pypa.io/en/stable/getting-started/"
 icon = "python"
 
@@ -197,22 +218,41 @@ icon = "python"
 name = "tox"
 github = "tox-dev/tox"
 website = "https://tox.wiki/en/stable/"
-description = "FILL ME IN"
+description = """
+    tox is a tool for automated testing in multiple virtual environments. You can configure
+    environments using an INI-format configuration file, and it provides CLI commands to easily
+    run tasks in those environments.
+"""
 [[tools.functionalities.automating_virtual_envs]]
-explanation = "FILL ME IN"
-reference = "https://tox.wiki/en/4.11.3/user_guide.html"
+explanation = "tox allows you to configure environments using a `tox.ini` configuration file."
+reference = "https://tox.wiki/en/stable/user_guide.html"
+[[tools.functionalities.automating_virtual_envs]]
+explanation = """
+    tox supports integration with conda environments and packages with the tox-conda plugin.
+"""
+reference = "https://github.com/tox-dev/tox-conda"
+icon = "conda"
 
 [[tools]]
 name = "Nox"
 github = "wntrblm/nox"
 website = "https://nox.thea.codes/en/stable/"
-description = "FILL ME IN"
+description = """
+    Nox is a tool for automated testing in multiple virtual environments similar to tox. Unlike
+    tox, Nox uses a Python script for configuration rather than an INI file.
+"""
 [[tools.functionalities.automating_virtual_envs]]
-explanation = "FILL ME IN"
+explanation = """
+    Nox can use venv or virtualenv as a virtual environment backend. This will create Python
+    environments, and it allows you to script Python package installations with pip.
+"""
 reference = "https://nox.thea.codes/en/stable/config.html#defining-sessions"
 icon = "python"
 [[tools.functionalities.automating_virtual_envs]]
-explanation = "FILL ME IN"
+explanation = """
+    Nox allows you to use conda or mamba as a virtual environment backend. This will create conda
+    environments and allows you to install conda packages.
+"""
 reference = "https://nox.thea.codes/en/stable/config.html#configuring-a-session-s-virtualenv"
 icon = "conda"
 
@@ -238,25 +278,45 @@ icon = "python"
 name = "Hatch"
 github = "pypa/hatch"
 website = "https://hatch.pypa.io/latest/"
-description = "FILL ME IN"
+description = """
+    Hatch is a Python project manager with a variety of features in environment management as well
+    as building and publishing packages.
+"""
 [[tools.functionalities.creating_a_virtual_env]]
-explanation = "FILL ME IN"
+explanation = """
+    If you use Hatch's virtual environment management functionality, it will create a virtual
+    environment named "default".
+"""
 reference = "https://hatch.pypa.io/latest/environment/#creation"
 icon = "python"
-[[tools.functionalities.automating_virtual_envs]]
-explanation = "FILL ME IN"
-reference = "https://hatch.pypa.io/latest/environment/"
-icon = "python"
 [[tools.functionalities.managing_dependencies]]
-explanation = "FILL ME IN"
+explanation = """
+    Hatch lets you define dependencies in your project's `pyproject.toml` file. It will
+    automatically install them in any virtual environments that it manages.
+"""
 reference = "https://hatch.pypa.io/latest/environment/#dependencies"
 icon = "python"
+[[tools.functionalities.automating_virtual_envs]]
+explanation = """
+    Hatch lets you configure multiple virtual environments in your project's `pyproject.toml` file.
+    It has advanced configurability like inheritance between environments and matrices of
+    parameters. Hatch will keep dependencies in environments synchronized, and provides a
+    `hatch run` command for executing scripts in one or multiple environments.
+"""
+reference = "https://hatch.pypa.io/latest/environment/"
+icon = "python"
 [[tools.functionalities.building_packages]]
-explanation = "FILL ME IN"
+explanation = """
+    Hatch is a build frontend, and it also comes with a build backend named Hatchling. Both are
+    compliant with modern Python packaging specifications (PEP 517 and PEP 621). You can use Hatch
+    to build a package with the `hatch build` command.
+"""
 reference = "https://hatch.pypa.io/latest/build/"
 icon = "python"
 [[tools.functionalities.publishing_packages]]
-explanation = "FILL ME IN"
+explanation = """
+    Hatch has a `hatch publish` CLI command for publishing a package to PyPI.
+"""
 reference = "https://hatch.pypa.io/latest/publish/"
 icon = "python"
 
@@ -300,6 +360,11 @@ reference = "https://pdm.fming.dev/latest/usage/venv/"
 [[tools.functionalities.automating_virtual_envs]]
 explanation = "FILL ME IN"
 reference = "https://pdm.fming.dev/latest/usage/venv/"
+icon = "python"
+[[tools.functionalities.automating_virtual_envs]]
+explanation = "FILL ME IN"
+reference = "https://pdm.fming.dev/latest/usage/venv/#virtualenv-auto-creation"
+icon = "conda"
 [[tools.functionalities.managing_dependencies]]
 explanation = "FILL ME IN"
 reference = "https://pdm.fming.dev/latest/usage/dependency/"
@@ -325,56 +390,96 @@ reference = "https://rye-up.com/guide/basics/#adding-dependencies"
 explanation = "FILL ME IN"
 reference = "https://rye-up.com/guide/sync/"
 [[tools.functionalities.building_packages]]
-explanation = "Rye provides a `build` command to build packages, which uses build under the hood."
+explanation = """
+    Rye provides a `rye build` command to build packages, which uses build under the hood.
+"""
 reference = "https://rye-up.com/guide/publish/"
 [[tools.functionalities.publishing_packages]]
-explanation = "Rye provides a `publish` command to publish to PyPI, which uses twine under the hood."
+explanation = """
+    Rye provides a `rye publish` command to publish to PyPI, which uses twine under the hood.
+"""
 reference = "https://rye-up.com/guide/publish/"
 
 [[tools]]
 name = "pip-tools"
 github = "jazzband/pip-tools"
 website = "https://github.com/jazzband/pip-tools/"
-description = "FILL ME IN"
+description = """
+    pip-tools is a set of command-line programs for creating a lock file for Python packages and
+    for syncing a virtual environment with a lock file. It uses the `requirements.txt` format used
+    by pip.
+"""
 [[tools.functionalities.writing_lock_files]]
-explanation = "FILL ME IN"
+explanation = """
+    The `pip-compile` command generates a fully pinned lock file (fully pinned `requirements.txt`)
+    from a set of abstract requirements. The `pip-sync` command synchronizes an environment with a
+    lock file.
+"""
 reference = "https://github.com/jazzband/pip-tools/#example-usage-for-pip-compile"
+icon = "python"
 
 [[tools]]
 name = "conda-lock"
 github = "conda/conda-lock"
 website = "https://github.com/conda/conda-lock"
-description = "FILL ME IN"
+description = """
+    Conda-lock generates multiplatform fully reproducible lock files for conda environments.
+"""
 [[tools.functionalities.writing_lock_files]]
-explanation = "FILL ME IN"
+explanation = """
+    Use the `conda-lock` CLI with a conda `environment.yml` file containing abstract requirements
+    to generate a lock file. You can use the `conda-lock install` command to install from a lock
+    file.
+"""
 reference = "https://github.com/conda/conda-lock#basic-usage"
+icon = "conda"
+[[tools.functionalities.writing_lock_files]]
+explanation = """
+    Conda-lock supports locking Python package dependencies installed by pip in a conda environment
+    specification.
+"""
+reference = "https://conda.github.io/conda-lock/pip/"
+icon = "python"
 
 [[tools]]
 name = "Build"
 github = "pypa/build"
 website = "https://pypa-build.readthedocs.io/en/stable/"
-description = "FILL ME IN"
+description = """
+    Build is a simple build frontend implementing modern Python packaging standards (PEP 517).
+"""
 [[tools.functionalities.building_packages]]
-explanation = "FILL ME IN"
+explanation = """
+    Use Build to build a package with `python -m build`. You will need to have a PEP 517 build
+    backend specified in your `pyproject.toml` file.
+"""
 reference = "https://pypa-build.readthedocs.io/en/stable/index.html"
 
 [[tools]]
 name = "Twine"
 github = "pypa/twine"
 website = "https://twine.readthedocs.io/en/stable/"
-description = "FILL ME IN"
+description = "Twine is a tool for publishing Python packages to PyPA."
 [[tools.functionalities.publishing_packages]]
-explanation = "FILL ME IN"
+explanation = "Twine has a `twine upload` command for publishing a built package archive."
 reference = "https://twine.readthedocs.io/en/stable/"
 
 [[tools]]
 name = "Flit"
 github = "pypa/flit"
 website = "https://flit.pypa.io/en/stable/"
-description = "FILL ME IN"
+description = "Flit is a simple build tool for pure Python packages."
 [[tools.functionalities.building_packages]]
-explanation = "FILL ME IN"
+explanation = """
+    Flit is a build frontend, and it includes a build backend flit_core. Both are compliant with
+    modern Python packaging specifications (PEP 517 and PEP 621). You can use Flit to build a
+    package with the `flit build` command.
+"""
 reference = "https://flit.pypa.io/en/stable/index.html#usage"
+icon = "python"
 [[tools.functionalities.publishing_packages]]
-explanation = "FILL ME IN"
+explanation = """
+    Flit has a `flit publish` command for publishing a package to PyPI.
+"""
 reference = "https://flit.pypa.io/en/stable/upload.html"
+icon = "python"
