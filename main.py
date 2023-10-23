@@ -1,14 +1,14 @@
 from enum import StrEnum
 from pathlib import Path
 import re
-import tomllib
 import textwrap
+import tomllib
 from typing import Annotated
 
 from jinja2 import Environment, FileSystemLoader, select_autoescape
 import markdown
 import minify_html_onepass
-from pydantic import BaseModel, AfterValidator
+from pydantic import AfterValidator, BaseModel
 from pydantic.networks import HttpUrl
 
 env = Environment(loader=FileSystemLoader("templates"), autoescape=True)
