@@ -6,7 +6,7 @@ site_url = "https://jayqi.github.io/python-tools-reference/"
 text = """
     This website is reference on how various popular Python tools cover different functionalities
     involved in Python development. Inclusion of tools is by judgment of the author. This reference
-    generally does not provide opinions about choosing between alterative tools.
+    generally does not provide opinions about choosing between alternative tools.
 """
 [sections.python_vs_conda]
 text = """
