@@ -5,8 +5,9 @@ site_url = "https://jayqi.github.io/python-tools-reference/"
 [sections.intro]
 text = """
     This website is reference on how various popular Python tools cover different functionalities
-    involved in Python development. Inclusion of tools is by judgment of the author. This reference
-    generally does not provide opinions about choosing between alternative tools.
+    involved in Python development. The goal is to help you understand the different layers of
+    functionality that you may need, and how the various tools cover them. Opinions about the tools
+    are generally not provided.
 """
 [sections.python_vs_conda]
 text = """
@@ -25,13 +26,15 @@ text = """
     into a Conda environment as if it were a Python virtual environment. Those Python packages will
     be available in the Conda environment alongside any Conda packages.
 
-    **Which kind of package ecosystem should you use?** If you are working with exclusively Python
-    packages, you will likely have a better experience using Python virtual environments and Python
-    package tools. The experience will be simpler, and you'll be able to install packages more
-    quickly and easily. However, if you are likely to need software in other languages, or if your
-    Python dependencies have dependencies on system-level libraries (e.g., scientific computing,
-    data science, and machine learning frameworks often depend on system-level linear algebra
-    libraries), then Conda can be useful for handling everything together.
+    **Which kind of package ecosystem should you use?**
+
+    - If you are working with exclusively Python packages, you will likely have a better experience
+    using Python virtual environments and Python package tools. The experience will be simpler,
+    and you'll be able to install packages more quickly and easily.
+    - However, if you are likely to need software in other languages, or if your
+    Python dependencies have dependencies on system-level libraries, then Conda can be useful for
+    handling everything together. This is can be common in scientific computing, data science,
+    machine learning, and geospatial data analysis.
 """
 
 [functionalities]
@@ -68,7 +71,9 @@ description = """
 name = "Writing lock files"
 description = """
     Lock files specify the exact set of packages installed in an environment with exact versions.
-    They allow for reproducing that environment.
+    They allow for reproducing that environment. This is most commonly useful if you are developing
+    software that will be deployed, like an application or data pipeline. It's less relevant if you
+    are developing a library.
 """
 [functionalities.building_packages]
 name = "Building packages"
@@ -115,68 +120,19 @@ explanation = """
 reference = "https://github.com/asdf-community/asdf-python"
 
 [[tools]]
-name = "rtx"
-github = "jdx/rtx"
-website = "https://github.com/jdx/rtx"
+name = "mise"
+github = "jdx/mise"
+website = "https://github.com/jdx/mise"
 description = """
-    rtx is a tool for managing multiple versions of many language runtimes, including Python. It
-    started out as a clone of asdf implemented in Rust.
+    mise (formerly rtx) is a tool for managing multiple versions of many language runtimes,
+    including Python. It started out as a clone of asdf implemented in Rust.
 """
 [[tools.functionalities.managing_python]]
 explanation = """
-    rtx has an `rtx install python@<version>` command for installing Python versions and a
-    `rtx use python@<version>` command for setting an active Python version.
+    mise has an `mise install python@<version>` command for installing Python versions and a
+    `mise use python@<version>` command for setting an active Python version.
 """
-reference = "https://github.com/jdx/rtx/blob/main/docs/python.md"
-
-[[tools]]
-name = "conda"
-github = "conda/conda"
-website = "https://docs.conda.io/en/latest/"
-description = """
-    Conda is a cross-platform package and virtual environment manager. Conda packages can include
-    libraries or executables in any language.
-"""
-[[tools.functionalities.managing_python]]
-explanation = """
-    Conda allows you to install any version of Python as an isolated Python runtime in conda
-    environment. To use that instance of Python, you will need to either activate the environment
-    or use `conda run -n <envname>`.
-"""
-reference = "https://docs.conda.io/projects/conda/en/stable/user-guide/getting-started.html#managing-python"
-[[tools.functionalities.creating_a_virtual_env]]
-explanation = "FILL ME IN"
-reference = "https://docs.conda.io/projects/conda/en/stable/user-guide/getting-started.html#managing-envs"
-icon = "conda"
-[[tools.functionalities.managing_dependencies]]
-explanation = "FILL ME IN"
-reference = "https://docs.conda.io/projects/conda/en/stable/user-guide/getting-started.html#managing-pkgs"
-icon = "python"
-[[tools.functionalities.managing_dependencies]]
-explanation = "FILL ME IN"
-reference = "https://docs.conda.io/projects/conda/en/stable/user-guide/getting-started.html#managing-pkgs"
-icon = "conda"
-
-[[tools]]
-name = "mamba"
-github = "mamba-org/mamba"
-website = "https://mamba.readthedocs.io/en/stable/"
-description = "FILL ME IN"
-[[tools.functionalities.managing_python]]
-explanation = "FILL ME IN"
-reference = "https://mamba.readthedocs.io/en/latest/user_guide/mamba.html#quickstart"
-[[tools.functionalities.creating_a_virtual_env]]
-explanation = "FILL ME IN"
-reference = "https://mamba.readthedocs.io/en/latest/user_guide/mamba.html#quickstart"
-icon = "conda"
-[[tools.functionalities.managing_dependencies]]
-explanation = "FILL ME IN"
-reference = "https://mamba.readthedocs.io/en/latest/user_guide/mamba.html#quickstart"
-icon = "python"
-[[tools.functionalities.managing_dependencies]]
-explanation = "FILL ME IN"
-reference = "https://mamba.readthedocs.io/en/latest/user_guide/mamba.html#quickstart"
-icon = "conda"
+reference = "https://github.com/jdx/mise/blob/main/docs/python.md"
 
 [[tools]]
 name = "venv"
@@ -198,7 +154,7 @@ reference = "https://virtualenv.pypa.io/en/latest/user_guide.html"
 icon = "python"
 
 [[tools]]
-name = "Pip"
+name = "pip"
 github = "pypa/pip"
 website = "https://pip.pypa.io/en/stable/"
 description = """
@@ -213,6 +169,87 @@ explanation = """
 """
 reference = "https://pip.pypa.io/en/stable/getting-started/"
 icon = "python"
+
+[[tools]]
+name = "uv"
+github = "astral/uv"
+website = "https://github.com/astral-sh/uv"
+description = """
+    uv is a fast Python installer and resolver designed to be a drop-in replacement for pip,
+    pip-compile, and virtualenv.
+"""
+[[tools.functionalities.creating_a_virtual_env]]
+explanation = "FILL ME IN"
+reference = "https://github.com/astral-sh/uv?tab=readme-ov-file#getting-started"
+icon = "python"
+[[tools.functionalities.managing_dependencies]]
+explanation = "FILL ME IN"
+reference = "https://github.com/astral-sh/uv?tab=readme-ov-file#getting-started"
+icon = "python"
+[[tools.functionalities.writing_lock_files]]
+explanation = "FILL ME IN"
+reference = "https://github.com/astral-sh/uv?tab=readme-ov-file#getting-started"
+icon = "python"
+
+[[tools]]
+name = "conda"
+github = "conda/conda"
+website = "https://docs.conda.io/en/latest/"
+description = """
+    Conda is a cross-platform package and virtual environment manager. Conda packages can include
+    libraries or executables in any language.
+"""
+[[tools.functionalities.managing_python]]
+explanation = """
+    Conda treats Python like any other conda package, and it allows you to install any version of
+    Python as an isolated Python runtime in conda environment. To use that instance of Python, you
+    will need to either activate the environment or use `conda run -n <envname>`.
+"""
+reference = "https://docs.conda.io/projects/conda/en/stable/user-guide/getting-started.html#managing-python"
+[[tools.functionalities.creating_a_virtual_env]]
+explanation = """
+    Conda allows you to create conda environments using the `conda create -n <envname>` command.
+"""
+reference = "https://docs.conda.io/projects/conda/en/stable/user-guide/getting-started.html#managing-envs"
+icon = "conda"
+[[tools.functionalities.managing_dependencies]]
+explanation = """
+    Conda has a `environment.yml` file specification for specifying dependencies to install into
+    an environment.
+"""
+reference = "https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html"
+icon = "python"
+[[tools.functionalities.managing_dependencies]]
+explanation = """
+    Conda has a `environment.yml` file specification for specifying dependencies to install into
+    an environment. In it, you can have a subsection under `pip` for Python package dependencies.
+"""
+reference = "https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#creating-an-environment-file-manually"
+icon = "conda"
+
+[[tools]]
+name = "mamba"
+github = "mamba-org/mamba"
+website = "https://mamba.readthedocs.io/en/stable/user_guide/mamba.html"
+description = "Mamba is a faster drop-in replacement for the conda package manager."
+[[tools.functionalities.managing_python]]
+explanation = """
+    As a drop-in replacement for conda, mamba can manage Python installations, which are treated
+    like any other conda package.
+"""
+reference = "https://mamba.readthedocs.io/en/latest/user_guide/mamba.html#quickstart"
+[[tools.functionalities.creating_a_virtual_env]]
+explanation = "FILL ME IN"
+reference = "https://mamba.readthedocs.io/en/latest/user_guide/mamba.html#quickstart"
+icon = "conda"
+[[tools.functionalities.managing_dependencies]]
+explanation = "FILL ME IN"
+reference = "https://mamba.readthedocs.io/en/latest/user_guide/mamba.html#quickstart"
+icon = "python"
+[[tools.functionalities.managing_dependencies]]
+explanation = "FILL ME IN"
+reference = "https://mamba.readthedocs.io/en/latest/user_guide/mamba.html#quickstart"
+icon = "conda"
 
 [[tools]]
 name = "tox"
@@ -260,18 +297,30 @@ icon = "conda"
 name = "Pipenv"
 github = "pypa/pipenv"
 website = "https://pipenv.pypa.io/en/stable/"
-description = "FILL ME IN"
+description = """
+    Pipenv is a tool for managing Python environments and dependencies for a project. It uses its
+    own `Pipfile` and `Pipefile.lock` file formats for specifying and locking dependencies.
+"""
 [[tools.functionalities.creating_a_virtual_env]]
-explanation = "FILL ME IN"
-reference = "https://pipenv.pypa.io/en/latest/installation/#virtualenv-mapping-caveat"
+explanation = """
+    When you use `pipenv install` for the first time in a project, it will automatically create
+    a virtual environment for that project.
+"""
+reference = "https://pipenv.pypa.io/en/latest/installation.html#virtualenv-mapping-caveat"
 icon = "python"
 [[tools.functionalities.managing_dependencies]]
-explanation = "FILL ME IN"
+explanation = """
+    When you use `pipenv install` to install a package, Pipenv tracks your dependencies in a file
+    called `Pipfile`.
+"""
 reference = "https://pipenv.pypa.io/en/stable/installation/#installing-packages-for-your-project"
 icon = "python"
 [[tools.functionalities.writing_lock_files]]
-explanation = "FILL ME IN"
-reference = "https://pipenv.pypa.io/en/stable/installation/#installing-packages-for-your-project"
+explanation = """
+    Pipenv also manages a file called `Pipfile.lock` which tracks the exact versions of packages
+    installed.
+"""
+reference = "https://pipenv.pypa.io/en/latest/pipfile.html"
 icon = "python"
 
 [[tools]]
@@ -285,7 +334,7 @@ description = """
 [[tools.functionalities.creating_a_virtual_env]]
 explanation = """
     If you use Hatch's virtual environment management functionality, it will create a virtual
-    environment named "default".
+    environment named "default" that is the primary environment for a project.
 """
 reference = "https://hatch.pypa.io/latest/environment/#creation"
 icon = "python"
