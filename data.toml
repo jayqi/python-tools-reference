@@ -8,6 +8,12 @@ text = """
     involved in Python development. The goal is to help you understand the different layers of
     functionality that you may need, and how the various tools cover them. Opinions about the tools
     are generally not provided.
+
+    Some common questions:
+
+    - [What's up with Python vs. Conda packages and environments?](#whats-up-with-python-vs-conda)
+    - [When do I need these different functionalities?](#when-do-i-need-these-different-functionalities)
+
 """
 [sections.python_vs_conda]
 text = """
@@ -26,7 +32,7 @@ text = """
     into a Conda environment as if it were a Python virtual environment. Those Python packages will
     be available in the Conda environment alongside any Conda packages.
 
-    **Which kind of package ecosystem should you use?**
+    **Which kind of package ecosystem should I use?**
 
     - If you are working with exclusively Python packages, you will likely have a better experience
     using Python virtual environments and Python package tools. The experience will be simpler,
@@ -88,6 +94,37 @@ description = """
     Publishing Python packages to PyPI or Conda packages to conda-forge.
 """
 
+[scenarios]
+[scenarios.library_development]
+name = "Library development"
+description = ""
+functionalities = [
+    "managing_python",
+    "creating_a_virtual_env",
+    "managing_dependencies",
+    "automating_virtual_envs",
+    "building_packages",
+    "publishing_packages",
+]
+[scenarios.application_development]
+name = "Application development"
+description = ""
+functionalities = [
+    "managing_python",
+    "creating_a_virtual_env",
+    "managing_dependencies",
+    "writing_lock_files",
+]
+[scenarios.data_science_project]
+name = "Data science project"
+description = ""
+functionalities = [
+    "managing_python",
+    "creating_a_virtual_env",
+    "managing_dependencies",
+    "writing_lock_files",
+]
+
 [[tools]]
 name = "pyenv"
 website = "https://github.com/pyenv/pyenv"
@@ -137,9 +174,9 @@ reference = "https://github.com/jdx/mise/blob/main/docs/python.md"
 [[tools]]
 name = "venv"
 website = "https://docs.python.org/3/library/venv.html"
-description = "A Python standard library module for creating virtual environments."
+description = "A Python standard library module for creating Python virtual environments."
 [[tools.functionalities.creating_a_virtual_env]]
-explanation = "The venv modulle lets you create a virtual environment with `python -m venv`."
+explanation = "The venv module lets you create a virtual environment with `python -m venv`."
 reference = "https://docs.python.org/3/library/venv.html#creating-virtual-environments"
 icon = "python"
 
@@ -147,9 +184,13 @@ icon = "python"
 name = "virtualenv"
 github = "pypa/virtualenv"
 website = "https://virtualenv.pypa.io/en/latest/"
-description = "FILL ME IN"
+description = """
+    virtualenv is a tool for creating Python virtual environments. It has more functionality than
+    the standard library venv module, such as creating virtual environments for any installed 
+    Python interpreter/version.
+"""
 [[tools.functionalities.creating_a_virtual_env]]
-explanation = "FILL ME IN"
+explanation = "You can create a virtual environment with `virtualenv <envname>`."
 reference = "https://virtualenv.pypa.io/en/latest/user_guide.html"
 icon = "python"
 

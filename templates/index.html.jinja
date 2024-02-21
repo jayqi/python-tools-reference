@@ -78,6 +78,13 @@
             --font-size: 1em;
         }
 
+        th.sticky {
+            position: sticky;
+            top: 0;
+            z-index: 1;
+            background-color: var(--background-color);
+        }
+
         ul.tool-table-cell-list {
             list-style-type: none;
             margin: 0;
@@ -148,9 +155,9 @@
             <table role="grid">
                 <thead>
                     <tr>
-                        <th></th>
+                        <th class="sticky"></th>
                         {% for func_info in functionalities.values() %}
-                        <th scope="col">{{ func_info.name }} <span class="tooltip-large"
+                        <th scope="col" class="sticky">{{ func_info.name }} <span class="tooltip-large"
                                 data-tooltip="{{ func_info.description }}" data-placement="bottom">ⓘ</span></th>
                         {% endfor %}
                     </tr>
@@ -185,11 +192,40 @@
         </section>
         <section>
             <article>
-                <h2>What's up with {% include "python.svg" %} Python vs. {% include "conda.svg" %} Conda packages and
+                <h2 id="whats-up-with-python-vs-conda">What's up with {% include "python.svg" %} Python vs. {% include
+                    "conda.svg" %} Conda packages and
                     environments?</h2>
                 {{ sections["python_vs_conda"].render_text_as_markdown() | safe }}
             </article>
             <article>
+                <h2 id="when-do-i-need-these-different-functionalities">When do I need these different functionalities?
+                </h2>
+                <table role="grid">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            {% for func_info in functionalities.values() %}
+                            <th scope="col">{{ func_info.name }} <span class="tooltip-large"
+                                    data-tooltip="{{ func_info.description }}" data-placement="bottom">ⓘ</span></th>
+                            {% endfor %}
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for scenario_info in scenarios.values() %}
+                        <tr>
+                            <th scope="row">{{ scenario_info.name }} <span class="tooltip-large"
+                                    data-tooltip="{{ scenario_info.description }}" data-placement="right">ⓘ</span></th>
+                            {% for func_key in functionalities.keys() %}
+                            <td style="text-align: center;">
+                                {% if func_key in scenario_info.functionalities %}
+                                ☑
+                                {% endif %}
+                            </td>
+                            {% endfor %}
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
                 <h2>Functionality definitions</h2>
                 <dl>
                     {% for func_key, func_info in functionalities.items() %}
@@ -198,8 +234,6 @@
                     {% endfor %}
                 </dl>
             </article>
-        </section>
-        <section>
             <h2>Tools</h2>
             {% for tool_info in tools %}
             <article>
@@ -237,7 +271,7 @@
             <p>
                 <span xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/">
                     <a property="dct:title" rel="cc:attributionURL" href="{{ meta.site_url }}">"Python Developer Tools
-                        Reference"</a> copyright © 2023 by <a rel="cc:attributionURL dct:creator"
+                        Reference"</a> copyright © 2024 by <a rel="cc:attributionURL dct:creator"
                         property="cc:attributionName" href="https://jayqi.com">Jay Qi</a> is licensed under <a
                         href="http://creativecommons.org/licenses/by-nc-nd/4.0/?ref=chooser-v1" target="_blank"
                         rel="license noopener noreferrer" style="display:inline-block;">CC BY-NC-ND 4.0<img

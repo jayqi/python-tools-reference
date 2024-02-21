@@ -19,7 +19,8 @@ nonparagraph_line_break = re.compile(r"(?<!\n)\n(?!\n)")
 
 
 def unwrap(text: str):
-    return nonparagraph_line_break.sub(" ", textwrap.dedent(text).strip())
+    return textwrap.dedent(text).strip()
+    # return nonparagraph_line_break.sub(" ", textwrap.dedent(text).strip())
 
 
 LongStr = Annotated[str, AfterValidator(unwrap)]
@@ -74,6 +75,18 @@ if __name__ == "__main__":
         for key, value in data["functionalities"].items()
     }
 
+    class ScenarioInfo(BaseModel):
+        name: str
+        description: LongStr
+        functionalities: list[FunctionalitiesEnum]
+
+        def render_description_as_markdown(self):
+            return markdown.markdown(self.description)
+
+    scenarios = {
+        key: ScenarioInfo.model_validate(value) for key, value in data["scenarios"].items()
+    }
+
     # Define this class dynamically because we want to validate the enum values
     class ToolInfo(BaseModel):
         name: str
@@ -88,7 +101,11 @@ if __name__ == "__main__":
     tools = [ToolInfo.model_validate(item) for item in data["tools"]]
     with Path("site/index.html").open("w") as fp:
         rendered = template.render(
-            meta=meta, sections=sections, functionalities=functionalities, tools=tools
+            meta=meta,
+            sections=sections,
+            functionalities=functionalities,
+            scenarios=scenarios,
+            tools=tools,
         )
         minified = minify_html_onepass.minify(
             rendered,
